@@ -1,0 +1,27 @@
+func foo(x:int) {
+    var y =  2 * 2 + 1 == 2;
+    x = 2;
+}
+
+func bar() {
+    foo(1);
+
+    if 1 {
+        x = 1;
+    } else if 2 {
+        x = 2;
+    }
+}
+
+
+func setup() {
+    var g = 1;
+}
+
+func loop() {
+    var global = g + FOO;
+    print(global, ",", g);
+    flush(#message1);
+}
+
+const FOO = 100;

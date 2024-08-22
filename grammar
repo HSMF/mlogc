@@ -1,0 +1,42 @@
+PROGRAM ::= TOPLEVEL*
+
+TOPLEVEL ::=
+    | CONST_DECL
+    | FUNC_DECL
+
+CONST_DECL ::= 'const' IDENT '=' C_EXPR
+
+
+FUNC_DECL ::= 'func' IDENT '(' ARGLIST [','] ')' BLOCK
+
+BLOCK ::= '{' STATEMENT* '}'
+
+STATEMENT ::=
+    | 'var' IDENT '=' EXPR ';'
+    | EXPR '=' EXPR ';'
+    | IFELSE
+    | FCALL
+
+IFELSE ::=
+    | 'if' EXPR BLOCK
+    | 'if' EXPR 'else' BLOCK
+    | 'if' EXPR 'else' IFELSE
+
+EXPR ::=
+    | C_EXPR
+    | '(' C_EXPR ')'
+    | EXPR '+' EXPR
+    | EXPR '*' EXPR
+    | EXPR '*' EXPR
+    | EXPR '.' EXPR
+    | FCALL
+
+FCALL ::= EXPR '(' ARGLIST ')'
+
+C_EXPR ::=
+    | INT
+    | STRING
+    | UNIT
+    | BLOCK
+    | BUILDING
+

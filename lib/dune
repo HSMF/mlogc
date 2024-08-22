@@ -1,0 +1,8 @@
+(library
+ (name mlogc)
+ (libraries sedlex menhirLib)
+ (preprocess
+  (pps sedlex.ppx)))
+
+(menhir
+ (modules parser))

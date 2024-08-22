@@ -1,0 +1,20 @@
+func setup() {
+    ubind(@poly);
+    var x = 1;
+    var y = 100;
+}
+
+func loop() {
+    if @unit.is_within(x, y, 5) {
+        wait_ms(100);
+        x = x + 1;
+        if x > 100 {
+            x = 10;
+        }
+        print(x);
+        flush(#message1);
+    } else {
+        @unit.move(x, y);
+        @unit.build(x, y, @illuminator, 0, 0);
+    }
+}

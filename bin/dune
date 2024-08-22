@@ -1,0 +1,4 @@
+(executable
+ (public_name mlogc)
+ (name main)
+ (libraries mlogc))
